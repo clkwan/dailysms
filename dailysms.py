@@ -7,8 +7,8 @@ from twilio.rest import Client as twilClient
 
 from credentials import account_sid, auth_token, my_cell, twilio_number, gm_key
 
-home_address = '41601 S Bellridge Dr, Belleville, MI'
-work_address = 'ITBIC'
+home_address = 'Ann Arbor, MI'
+work_address = 'Detroit, MI'
 arrival_time = '9:30AM'
 
 client = twilClient(account_sid, auth_token)
@@ -47,5 +47,5 @@ def sendsms():
 
 if __name__ == '__main__':
     while True:
-        if datetime.now() == time.strptime(arrival_time, '%I:%M%p'):
+        if datetime.now() + timedelta(hours=1) == time.strptime(arrival_time, '%I:%M%p'):
             sendsms()
